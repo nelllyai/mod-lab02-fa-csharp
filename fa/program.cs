@@ -110,6 +110,23 @@ namespace fans
 
     State InitialState = q0;
     
+    public FA2() {
+        q0.Transitions['0'] = q1;
+        q0.Transitions['1'] = q2;
+
+        q1.Transitions['0'] = q0;
+        q1.Transitions['1'] = q3;
+
+        q2.Transitions['0'] = q4;
+        q2.Transitions['1'] = q0;
+
+        q3.Transitions['0'] = q2;
+        q3.Transitions['1'] = q1;
+
+        q4.Transitions['0'] = q2;
+        q4.Transitions['1'] = q1;
+    }
+    
     public bool? Run(IEnumerable<char> s)
     {
       State current = InitialState;
@@ -144,7 +161,7 @@ namespace fans
 
     State InitialState = q0;
 
-    public FA1() {
+    public FA3() {
         q0.Transitions['0'] = q0;
         q0.Transitions['1'] = q1;
 
